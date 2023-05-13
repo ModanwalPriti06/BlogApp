@@ -1,6 +1,5 @@
 import React from 'react'
-//import Login from './pages/login/Login'
-//import Setting from './pages/settings/Setting'
+
 import Home from './pages/home/Home'
 //import Single from './pages/single/Single'
 import Write from './pages/write/Write'
@@ -17,7 +16,8 @@ import{BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 
 
 function App() {
-  const user=true;
+ const user=true;
+  
   return (
     <>
     
@@ -25,10 +25,14 @@ function App() {
      <TopBar/>   
       <Routes>
        <Route path="/" element={<Home/>}></Route>
+       
        <Route path="/register" element={user?<Home/>:<Register/>}></Route>
-       <Route path="/login" element={user?<Home/>:<Login/>}></Route>
+       <Route path="/login" element={<Login/>}></Route>
+
        <Route path="/write" element={user?<Write/>:<Register/>}></Route>
        <Route path="/settings" element={user?<Setting/>:<Register/>}></Route>
+       {/* <Route path="/write" element={<Write/>}></Route>
+       <Route path="/settings" element={<Setting/>}></Route> */}
        <Route path="/post/:postId" element={<Single/>}></Route>
        <Route path="/posts" element={<Posts/>}></Route>
     </Routes>
